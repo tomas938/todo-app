@@ -29,29 +29,31 @@
 					</svg>
 				</li>
 			</transition-group>
-			<div class="filters">
-				<div class="items-left">
-					<span>{{ filteredTodos.length }} items left</span>
+			<transition>
+				<div class="filters">
+					<div class="items-left">
+						<span>{{ filteredTodos.length }} items left</span>
+					</div>
+					<div class="filter">
+						<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+							>All</span
+						>
+						<span
+							:class="{ active: filter === 'active' }"
+							@click="filter = 'active'"
+							>Active</span
+						>
+						<span
+							:class="{ active: filter === 'completed' }"
+							@click="filter = 'completed'"
+							>Completed</span
+						>
+					</div>
+					<div class="clear">
+						<span @click="clearTodos">Clear Completed</span>
+					</div>
 				</div>
-				<div class="filter">
-					<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
-						>All</span
-					>
-					<span
-						:class="{ active: filter === 'active' }"
-						@click="filter = 'active'"
-						>Active</span
-					>
-					<span
-						:class="{ active: filter === 'completed' }"
-						@click="filter = 'completed'"
-						>Completed</span
-					>
-				</div>
-				<div class="clear">
-					<span @click="clearTodos">Clear Completed</span>
-				</div>
-			</div>
+			</transition>
 		</div>
 	</main>
 </template>
@@ -65,7 +67,28 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
 			filter: "all",
 		};
 	},
@@ -218,6 +241,7 @@ main {
 }
 .list-leave-to {
 	opacity: 0;
+	transform: translateX(-50px);
 	transform: scale(0.6);
 }
 .list-move {

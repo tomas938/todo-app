@@ -65,7 +65,28 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
 			filter: "all",
 		};
 	},
@@ -202,7 +223,7 @@ main {
 }
 .list-enter-from {
 	opacity: 0;
-	transform: scale(0.6);
+	// transform: scale(0.6);
 }
 .list-enter-to {
 	opacity: 1;
@@ -210,7 +231,7 @@ main {
 }
 .list-leave-active {
 	transition: all 0.7s ease;
-	position: absolute;
+	// position: absolute;
 }
 .list-leave-from {
 	opacity: 1;
@@ -218,7 +239,8 @@ main {
 }
 .list-leave-to {
 	opacity: 0;
-	transform: scale(0.6);
+	transform: translateX(-50px);
+	// transform: scale(0.6);
 }
 .list-move {
 	transition: all 0.8s ease;

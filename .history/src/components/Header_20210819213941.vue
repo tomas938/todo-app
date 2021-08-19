@@ -38,7 +38,7 @@
 				type="text"
 				placeholder="Create a new todo..."
 				v-model="newTodo"
-				@keypress.enter="$emit('create-todo', newTodo), clearInput()"
+				@keypress.enter="$emit('create-todo', newTodo)"
 			/>
 		</div>
 	</header>
@@ -63,9 +63,6 @@ export default {
 				this.body.classList.remove("dark");
 				this.body.classList.add("light");
 			}
-		},
-		clearInput() {
-			this.newTodo = "";
 		},
 	},
 	mounted() {

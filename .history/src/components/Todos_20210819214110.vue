@@ -85,6 +85,7 @@ export default {
 		newTodo(newTodo) {
 			if (newTodo !== "") {
 				this.todos.unshift({ name: newTodo, completed: false });
+				this.newTodo = "";
 			}
 		},
 		removeTodo(index) {

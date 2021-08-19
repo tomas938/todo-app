@@ -65,7 +65,28 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
 			filter: "all",
 		};
 	},
@@ -172,6 +193,7 @@ main {
 	}
 }
 .filters {
+	position: absolute;
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--items-bg-color);

@@ -65,13 +65,36 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
 			filter: "all",
 		};
 	},
 	mounted() {
-		if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
-			this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
+		if (this.todos === []) {
+			if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
+				this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
+		}
 	},
 	watch: {
 		todos: {
@@ -140,6 +163,8 @@ main {
 	font-weight: $light;
 	color: var(--todo-text);
 	border-bottom: 1px solid var(--todo-border);
+
+	// FIXME maybe group styling //
 	.todo {
 		cursor: pointer;
 		content: "";

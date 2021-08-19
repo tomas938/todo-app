@@ -130,7 +130,7 @@ main {
 }
 .todo-item {
 	position: relative;
-	display: flex;
+	display: inline-block;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;

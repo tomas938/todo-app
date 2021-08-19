@@ -29,7 +29,7 @@
 					</svg>
 				</li>
 			</transition-group>
-			<div class="filters">
+			<!-- <div class="filters">
 				<div class="items-left">
 					<span>{{ filteredTodos.length }} items left</span>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="clear">
 					<span @click="clearTodos">Clear Completed</span>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</main>
 </template>

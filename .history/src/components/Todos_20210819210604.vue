@@ -65,7 +65,7 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)),
 			filter: "all",
 		};
 	},

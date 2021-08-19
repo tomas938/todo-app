@@ -38,7 +38,7 @@
 				type="text"
 				placeholder="Create a new todo..."
 				v-model="newTodo"
-				@keypress.enter="$emit('create-todo', newTodo), clearInput()"
+				@keypress.enter="$emit('create-todo', newTodo), clear()"
 			/>
 		</div>
 	</header>

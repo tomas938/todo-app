@@ -210,7 +210,7 @@ main {
 }
 .list-leave-active {
 	transition: all 0.7s ease;
-	position: absolute;
+	// position: absolute;
 }
 .list-leave-from {
 	opacity: 1;
