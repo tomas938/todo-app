@@ -20,7 +20,11 @@
 		--todo-border: hsl(236, 33%, 92%);
 	}
 }
-
+#app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 * {
 	margin: 0;
 	padding: 0;

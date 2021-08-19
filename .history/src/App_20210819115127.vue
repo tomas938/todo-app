@@ -33,6 +33,8 @@ body {
 	font-size: 1.8rem;
 	font-family: $font-primary;
 	background-color: var(--body-bg);
+	display: flex;
+	width: 100%;
 }
 
 li {

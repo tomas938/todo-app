@@ -20,7 +20,9 @@
 		--todo-border: hsl(236, 33%, 92%);
 	}
 }
-
+#app {
+	display: flex;
+}
 * {
 	margin: 0;
 	padding: 0;

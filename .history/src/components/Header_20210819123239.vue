@@ -119,7 +119,7 @@ header {
 }
 input {
 	background-color: var(--items-bg-color);
-	color: var(--todo-text);
+	color: red;
 	width: 100%;
 	outline: none;
 	border: none;

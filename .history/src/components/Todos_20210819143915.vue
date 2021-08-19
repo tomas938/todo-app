@@ -2,7 +2,7 @@
 	<Header @create-todo="newTodo($event)" />
 	<main>
 		<div class="wrapper">
-			<transition-group name="list" class="todos" tag="ul" appear>
+			<transition-group name="list" class="todos" tag="ul" appear="">
 				<li
 					v-for="(todo, index) in filteredTodos"
 					:key="todo.name"
@@ -64,45 +64,31 @@ export default {
 	},
 	data() {
 		return {
-			LOCAL_STORAGE_KEY: "todoApp",
-			todos:
-				JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) ||
-				[
-					// {
-					// 	name: "Jog around the park 3x",
-					// 	completed: true,
-					// },
-					// {
-					// 	name: "10 minutes meditation",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Read for 1 hour",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Pick up grocerie",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Complete Todo App on Frontend Mentor",
-					// 	completed: false,
-					// },
-				],
+			todos: [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
+			completedTodos: [],
 			filter: "all",
 		};
-	},
-	mounted() {
-		if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
-			this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
-	},
-	watch: {
-		todos: {
-			deep: true,
-			handler(newValue) {
-				localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(newValue));
-			},
-		},
 	},
 	methods: {
 		newTodo(newTodo) {
@@ -127,6 +113,17 @@ export default {
 				return this.todos.filter((todo) => todo.completed);
 			}
 			return this.todos;
+		},
+	},
+	mounted() {
+		if (localStorage.todo) {
+			this.todos = localStorage.todo;
+			console.log("hi");
+		}
+	},
+	watch: {
+		newTodo(newTodo) {
+			localStorage.this.todos = newTodo;
 		},
 	},
 };

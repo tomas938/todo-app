@@ -1,11 +1,11 @@
 <template>
 	<Header @create-todo="newTodo($event)" />
-	<main>
-		<div class="wrapper">
-			<transition-group name="list" class="todos" tag="ul" appear>
+	<main @click="log">
+		<ul class="todos">
+			<transition-group>
 				<li
 					v-for="(todo, index) in filteredTodos"
-					:key="todo.name"
+					:key="index"
 					class="todo-item"
 				>
 					<div
@@ -15,7 +15,7 @@
 					></div>
 					<span>{{ todo.name }}</span>
 					<svg
-						@click="removeTodo(index)"
+						@click="removeTodo()"
 						class="close"
 						xmlns="http://www.w3.org/2000/svg"
 						width="18"
@@ -52,7 +52,7 @@
 					<span @click="clearTodos">Clear Completed</span>
 				</div>
 			</div>
-		</div>
+		</ul>
 	</main>
 </template>
 
@@ -64,50 +64,38 @@ export default {
 	},
 	data() {
 		return {
-			LOCAL_STORAGE_KEY: "todoApp",
-			todos:
-				JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) ||
-				[
-					// {
-					// 	name: "Jog around the park 3x",
-					// 	completed: true,
-					// },
-					// {
-					// 	name: "10 minutes meditation",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Read for 1 hour",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Pick up grocerie",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Complete Todo App on Frontend Mentor",
-					// 	completed: false,
-					// },
-				],
+			todos: [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
+			completedTodos: [],
+			allTodos: [],
+			complete: true,
 			filter: "all",
 		};
-	},
-	mounted() {
-		if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
-			this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
-	},
-	watch: {
-		todos: {
-			deep: true,
-			handler(newValue) {
-				localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(newValue));
-			},
-		},
 	},
 	methods: {
 		newTodo(newTodo) {
 			if (newTodo !== "") {
-				this.todos.unshift({ name: newTodo, completed: false });
+				this.todos.push({ name: newTodo, completed: false });
 			}
 		},
 		removeTodo(index) {
@@ -136,20 +124,17 @@ export default {
 @import "/src/scss/_variables";
 
 main {
-	transform: translateY(-3rem);
-	display: flex;
-	flex-direction: column;
-	max-width: 73.5rem;
-	margin: 0 auto;
 	padding: 0 3rem;
-}
-.wrapper {
-	box-shadow: 0px 0px 11px 0px #1a1919;
+	display: flex;
+	justify-content: center;
+	transform: translateY(-3rem);
 }
 .todos {
-	position: relative;
+	max-width: 67.5rem;
+	width: 100%;
 	border-radius: 0.5rem;
 	background-color: var(--items-bg-color);
+	box-shadow: 0px 0px 11px 0px #1a1919;
 }
 .todo-item {
 	position: relative;
@@ -199,7 +184,6 @@ main {
 .filters {
 	display: flex;
 	justify-content: space-between;
-	background-color: var(--items-bg-color);
 	padding: 2rem;
 	.filter {
 		font-weight: $bold;
@@ -220,32 +204,5 @@ main {
 		cursor: pointer;
 		font-size: 1.7rem;
 	}
-}
-// TRANSITIONS //
-.list-enter-active {
-	transition: all 0.7s ease;
-}
-.list-enter-from {
-	opacity: 0;
-	transform: scale(0.6);
-}
-.list-enter-to {
-	opacity: 1;
-	transform: scale(1);
-}
-.list-leave-active {
-	transition: all 0.7s ease;
-	position: absolute;
-}
-.list-leave-from {
-	opacity: 1;
-	transform: scale(1);
-}
-.list-leave-to {
-	opacity: 0;
-	transform: scale(0.6);
-}
-.list-move {
-	transition: all 0.8s ease;
 }
 </style>

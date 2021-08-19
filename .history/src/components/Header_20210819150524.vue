@@ -66,6 +66,12 @@ export default {
 	},
 	mounted() {
 		this.body.classList.add("light");
+		this.checked = JSON.parse(localStorage.getItem(this.newTodo)) || [];
+	},
+	watch: {
+		checked(newValue) {
+			localStorage.setItem(this.newTodo, JSON.stringify(newValue));
+		},
 	},
 };
 </script>

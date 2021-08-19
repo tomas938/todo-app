@@ -47,6 +47,7 @@
 export default {
 	data() {
 		return {
+			checked: [""],
 			newTodo: "",
 			ligth: true,
 			body: document.body,
@@ -66,6 +67,12 @@ export default {
 	},
 	mounted() {
 		this.body.classList.add("light");
+		this.checked = JSON.parse(localStorage.getItem("newTodo")) || [];
+	},
+	watch: {
+		checked(newValue) {
+			localStorage.setItem("newTodo", JSON.stringify(newValue));
+		},
 	},
 };
 </script>

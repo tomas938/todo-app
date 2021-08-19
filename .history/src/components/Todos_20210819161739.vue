@@ -2,7 +2,7 @@
 	<Header @create-todo="newTodo($event)" />
 	<main>
 		<div class="wrapper">
-			<transition-group name="list" class="todos" tag="ul" appear>
+			<transition-group name="list" class="todos" tag="ul" appear="">
 				<li
 					v-for="(todo, index) in filteredTodos"
 					:key="todo.name"
@@ -64,45 +64,38 @@ export default {
 	},
 	data() {
 		return {
-			LOCAL_STORAGE_KEY: "todoApp",
-			todos:
-				JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) ||
-				[
-					// {
-					// 	name: "Jog around the park 3x",
-					// 	completed: true,
-					// },
-					// {
-					// 	name: "10 minutes meditation",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Read for 1 hour",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Pick up grocerie",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Complete Todo App on Frontend Mentor",
-					// 	completed: false,
-					// },
-				],
+			todos: [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
+			bobos: [],
 			filter: "all",
 		};
 	},
 	mounted() {
-		if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
-			this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
-	},
-	watch: {
-		todos: {
-			deep: true,
-			handler(newValue) {
-				localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(newValue));
-			},
-		},
+		localStorage.getItem("todos", JSON.stringify(this.todos));
+		this.bobos = JSON.parse(localStorage.getItem("todos"));
+		$: {
+			localStorage.setItem("todos", JSON.stringify(this.bobos)); // update local storage whenever 'todos' is changed...
+		}
 	},
 	methods: {
 		newTodo(newTodo) {

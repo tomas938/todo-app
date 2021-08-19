@@ -2,12 +2,8 @@
 	<Header @create-todo="newTodo($event)" />
 	<main>
 		<div class="wrapper">
-			<transition-group name="list" class="todos" tag="ul" appear>
-				<li
-					v-for="(todo, index) in filteredTodos"
-					:key="todo.name"
-					class="todo-item"
-				>
+			<transition-group name="list" class="todos" tag="ul" appear="">
+				<li v-for="(todo, index) in todos" :key="todo.name" class="todo-item">
 					<div
 						class="todo "
 						:class="{ complete: todo.completed }"
@@ -65,37 +61,32 @@ export default {
 	data() {
 		return {
 			LOCAL_STORAGE_KEY: "todoApp",
-			todos:
-				JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) ||
-				[
-					// {
-					// 	name: "Jog around the park 3x",
-					// 	completed: true,
-					// },
-					// {
-					// 	name: "10 minutes meditation",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Read for 1 hour",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Pick up grocerie",
-					// 	completed: false,
-					// },
-					// {
-					// 	name: "Complete Todo App on Frontend Mentor",
-					// 	completed: false,
-					// },
-				],
+			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [
+				{
+					name: "Jog around the park 3x",
+					completed: true,
+				},
+				{
+					name: "10 minutes meditation",
+					completed: false,
+				},
+				{
+					name: "Read for 1 hour",
+					completed: false,
+				},
+				{
+					name: "Pick up grocerie",
+					completed: false,
+				},
+				{
+					name: "Complete Todo App on Frontend Mentor",
+					completed: false,
+				},
+			],
 			filter: "all",
 		};
 	},
-	mounted() {
-		if (localStorage.getItem(this.LOCAL_STORAGE_KEY))
-			this.todos = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
-	},
+
 	watch: {
 		todos: {
 			deep: true,

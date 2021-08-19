@@ -20,7 +20,6 @@
 		--todo-border: hsl(236, 33%, 92%);
 	}
 }
-
 * {
 	margin: 0;
 	padding: 0;
@@ -30,6 +29,7 @@ html {
 	font-size: 62.5%;
 }
 body {
+	padding: 3rem;
 	font-size: 1.8rem;
 	font-family: $font-primary;
 	background-color: var(--body-bg);
