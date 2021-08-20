@@ -210,9 +210,6 @@ main {
 		color: $dark-grayish-blue--dark;
 		cursor: pointer;
 		font-size: 1.7rem;
-		@media only screen and (max-width: 350px) {
-			font-size: 1.4rem;
-		}
 	}
 }
 .filters {
@@ -244,7 +241,7 @@ main {
 		cursor: pointer;
 		font-size: 1.7rem;
 		@media only screen and (max-width: 350px) {
-			font-size: 1.4rem;
+			font-size: 1.5rem;
 		}
 	}
 }

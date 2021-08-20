@@ -135,10 +135,6 @@ input {
 	padding-left: 8rem;
 	border-radius: 0.5rem;
 	font-size: 1.8rem;
-	@media only screen and (max-width: 350px) {
-		font-size: 1.4rem;
-		padding-left: 7rem;
-	}
 	font-family: $font-primary;
 	font-weight: $light;
 }

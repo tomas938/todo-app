@@ -98,10 +98,6 @@ header {
 	&__title h1 {
 		font-size: 4.5rem;
 		letter-spacing: 1.8rem;
-		@media only screen and (max-width: 500px) {
-			font-size: 3rem;
-			letter-spacing: 1.5rem;
-		}
 		text-transform: uppercase;
 	}
 
@@ -135,14 +131,13 @@ input {
 	padding-left: 8rem;
 	border-radius: 0.5rem;
 	font-size: 1.8rem;
-	@media only screen and (max-width: 350px) {
-		font-size: 1.4rem;
-		padding-left: 7rem;
-	}
 	font-family: $font-primary;
 	font-weight: $light;
 }
 h1 {
 	color: $light-gray;
+	@media only screen and (max-width: 500px) {
+		font-size: 2rem;
+	}
 }
 </style>

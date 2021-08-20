@@ -188,11 +188,10 @@ main {
 }
 .filters-mobile {
 	display: none;
-	background-color: var(--items-bg-color);
 	padding: 2rem;
 	box-shadow: 0px 0px 11px 0px #1a1919;
 	border-radius: 0.5rem;
-	margin: 0 3rem;
+	margin: 0 6rem;
 	@media only screen and (max-width: 600px) {
 		display: block;
 	}
@@ -210,9 +209,6 @@ main {
 		color: $dark-grayish-blue--dark;
 		cursor: pointer;
 		font-size: 1.7rem;
-		@media only screen and (max-width: 350px) {
-			font-size: 1.4rem;
-		}
 	}
 }
 .filters {
@@ -243,9 +239,6 @@ main {
 		color: $dark-grayish-blue--dark;
 		cursor: pointer;
 		font-size: 1.7rem;
-		@media only screen and (max-width: 350px) {
-			font-size: 1.4rem;
-		}
 	}
 }
 // TRANSITIONS //
