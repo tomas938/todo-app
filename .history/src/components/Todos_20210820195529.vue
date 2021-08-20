@@ -2,7 +2,7 @@
 	<Header @create-todo="newTodo($event)" />
 	<main>
 		<div class="wrapper">
-			<VueDraggableNext class="todos" tag="ul" :scroll-sensitivity="200">
+			<VueDraggableNext class="todos" tag="ul">
 				<transition-group name="list" appear>
 					<li
 						v-for="(todo, index) in filteredTodos"

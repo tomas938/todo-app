@@ -2,7 +2,7 @@
 	<Header @create-todo="newTodo($event)" />
 	<main>
 		<div class="wrapper">
-			<VueDraggableNext class="todos" tag="ul" :scroll-sensitivity="200">
+			<dragabble class="todos" tag="ul">
 				<transition-group name="list" appear>
 					<li
 						v-for="(todo, index) in filteredTodos"
@@ -30,7 +30,7 @@
 						</svg>
 					</li>
 				</transition-group>
-			</VueDraggableNext>
+			</dragabble>
 			<div class="filters">
 				<div class="items-left">
 					<span>{{ filteredTodos.length }} items left</span>
@@ -84,6 +84,7 @@ export default {
 	},
 	data() {
 		return {
+			dragabble =VueDraggableNext,
 			LOCAL_STORAGE_KEY: "todoApp",
 			todos: JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY)) || [],
 			filter: "all",
