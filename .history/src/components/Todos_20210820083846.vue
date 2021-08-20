@@ -221,6 +221,6 @@ main {
 	transform: scale(0.6);
 }
 .list-move {
-	transition: all 0.4s ease;
+	transition: all 0.8s ease;
 }
 </style>

@@ -28,30 +28,30 @@
 						/>
 					</svg>
 				</li>
+				<li class="filters">
+					<div class="items-left">
+						<span>{{ filteredTodos.length }} items left</span>
+					</div>
+					<div class="filter">
+						<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+							>All</span
+						>
+						<span
+							:class="{ active: filter === 'active' }"
+							@click="filter = 'active'"
+							>Active</span
+						>
+						<span
+							:class="{ active: filter === 'completed' }"
+							@click="filter = 'completed'"
+							>Completed</span
+						>
+					</div>
+					<div class="clear">
+						<span @click="clearTodos">Clear Completed</span>
+					</div>
+				</li>
 			</transition-group>
-			<div class="filters">
-				<div class="items-left">
-					<span>{{ filteredTodos.length }} items left</span>
-				</div>
-				<div class="filter">
-					<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
-						>All</span
-					>
-					<span
-						:class="{ active: filter === 'active' }"
-						@click="filter = 'active'"
-						>Active</span
-					>
-					<span
-						:class="{ active: filter === 'completed' }"
-						@click="filter = 'completed'"
-						>Completed</span
-					>
-				</div>
-				<div class="clear">
-					<span @click="clearTodos">Clear Completed</span>
-				</div>
-			</div>
 		</div>
 	</main>
 </template>
@@ -210,7 +210,7 @@ main {
 }
 .list-leave-active {
 	transition: all 0.7s ease;
-	position: absolute;
+	// position: absolute;
 }
 .list-leave-from {
 	opacity: 1;

@@ -174,6 +174,7 @@ main {
 .filters {
 	display: flex;
 	justify-content: space-between;
+	transition: 1s ease-in-out;
 	background-color: var(--items-bg-color);
 	padding: 2rem;
 	.filter {
@@ -221,6 +222,6 @@ main {
 	transform: scale(0.6);
 }
 .list-move {
-	transition: all 0.4s ease;
+	transition: all 0.8s ease;
 }
 </style>

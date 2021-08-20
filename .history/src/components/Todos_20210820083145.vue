@@ -29,29 +29,31 @@
 					</svg>
 				</li>
 			</transition-group>
-			<div class="filters">
-				<div class="items-left">
-					<span>{{ filteredTodos.length }} items left</span>
+			<transition name="slide">
+				<div class="filters">
+					<div class="items-left">
+						<span>{{ filteredTodos.length }} items left</span>
+					</div>
+					<div class="filter">
+						<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+							>All</span
+						>
+						<span
+							:class="{ active: filter === 'active' }"
+							@click="filter = 'active'"
+							>Active</span
+						>
+						<span
+							:class="{ active: filter === 'completed' }"
+							@click="filter = 'completed'"
+							>Completed</span
+						>
+					</div>
+					<div class="clear">
+						<span @click="clearTodos">Clear Completed</span>
+					</div>
 				</div>
-				<div class="filter">
-					<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
-						>All</span
-					>
-					<span
-						:class="{ active: filter === 'active' }"
-						@click="filter = 'active'"
-						>Active</span
-					>
-					<span
-						:class="{ active: filter === 'completed' }"
-						@click="filter = 'completed'"
-						>Completed</span
-					>
-				</div>
-				<div class="clear">
-					<span @click="clearTodos">Clear Completed</span>
-				</div>
-			</div>
+			</transition>
 		</div>
 	</main>
 </template>
@@ -221,6 +223,33 @@ main {
 	transform: scale(0.6);
 }
 .list-move {
-	transition: all 0.4s ease;
+	transition: all 0.8s ease;
+}
+
+.slide-enter-active {
+	transition: all 0.7s ease;
+}
+.slide-enter-from {
+	opacity: 0;
+	transform: scale(0.6);
+}
+.slide-enter-to {
+	opacity: 1;
+	transform: scale(1);
+}
+.slide-leave-active {
+	transition: all 0.7s ease;
+	position: absolute;
+}
+.slide-leave-from {
+	opacity: 1;
+	transform: scale(1);
+}
+.slide-leave-to {
+	opacity: 0;
+	transform: scale(0.6);
+}
+.slide-move {
+	transition: all 0.8s ease;
 }
 </style>

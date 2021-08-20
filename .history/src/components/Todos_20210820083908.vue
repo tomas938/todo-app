@@ -29,7 +29,7 @@
 					</svg>
 				</li>
 			</transition-group>
-			<div class="filters">
+			<li class="filters">
 				<div class="items-left">
 					<span>{{ filteredTodos.length }} items left</span>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="clear">
 					<span @click="clearTodos">Clear Completed</span>
 				</div>
-			</div>
+			</li>
 		</div>
 	</main>
 </template>
@@ -221,6 +221,6 @@ main {
 	transform: scale(0.6);
 }
 .list-move {
-	transition: all 0.4s ease;
+	transition: all 0.8s ease;
 }
 </style>

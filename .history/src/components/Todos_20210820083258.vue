@@ -29,29 +29,31 @@
 					</svg>
 				</li>
 			</transition-group>
-			<div class="filters">
-				<div class="items-left">
-					<span>{{ filteredTodos.length }} items left</span>
+			<transition name="fade">
+				<div class="filters">
+					<div class="items-left">
+						<span>{{ filteredTodos.length }} items left</span>
+					</div>
+					<div class="filter">
+						<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+							>All</span
+						>
+						<span
+							:class="{ active: filter === 'active' }"
+							@click="filter = 'active'"
+							>Active</span
+						>
+						<span
+							:class="{ active: filter === 'completed' }"
+							@click="filter = 'completed'"
+							>Completed</span
+						>
+					</div>
+					<div class="clear">
+						<span @click="clearTodos">Clear Completed</span>
+					</div>
 				</div>
-				<div class="filter">
-					<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
-						>All</span
-					>
-					<span
-						:class="{ active: filter === 'active' }"
-						@click="filter = 'active'"
-						>Active</span
-					>
-					<span
-						:class="{ active: filter === 'completed' }"
-						@click="filter = 'completed'"
-						>Completed</span
-					>
-				</div>
-				<div class="clear">
-					<span @click="clearTodos">Clear Completed</span>
-				</div>
-			</div>
+			</transition>
 		</div>
 	</main>
 </template>
@@ -111,7 +113,13 @@ export default {
 
 <style lang="scss" scoped>
 @import "/src/scss/_variables";
-
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	opacity: 0;
+}
 main {
 	transform: translateY(-3rem);
 	display: flex;
@@ -221,6 +229,6 @@ main {
 	transform: scale(0.6);
 }
 .list-move {
-	transition: all 0.4s ease;
+	transition: all 0.8s ease;
 }
 </style>
