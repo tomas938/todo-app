@@ -76,11 +76,11 @@
 
 <script>
 import Header from "../components/Header";
-// import { VueDraggableNext } from "vue-draggable-next";
+import { VueDraggableNext } from "vue-draggable-next";
 export default {
 	components: {
 		Header,
-		// VueDraggableNext,
+		VueDraggableNext,
 	},
 	data() {
 		return {
