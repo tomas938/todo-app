@@ -181,9 +181,9 @@ main {
 		&:hover {
 			transition: all 0.4s ease-in-out;
 			border-top: 1px solid rgb(78, 194, 223);
-			border-left: 1px solid rgb(78, 194, 223);
+			border-bottom: 1px solid rgb(78, 194, 223);
 			border-right: 1px solid hsl(280, 87%, 65%);
-			border-bottom: 1px solid hsl(280, 87%, 65%);
+			border-left: 1px solid hsl(280, 87%, 65%);
 		}
 	}
 	span {

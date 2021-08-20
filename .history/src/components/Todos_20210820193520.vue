@@ -179,11 +179,10 @@ main {
 		border-radius: 50%;
 		border: 1px solid var(--todo-border);
 		&:hover {
-			transition: all 0.4s ease-in-out;
-			border-top: 1px solid rgb(78, 194, 223);
-			border-left: 1px solid rgb(78, 194, 223);
-			border-right: 1px solid hsl(280, 87%, 65%);
-			border-bottom: 1px solid hsl(280, 87%, 65%);
+			border-top: 3px solid rgb(78, 194, 223);
+			border-right: 3px solid rgb(78, 194, 223);
+			border-bottom: 3px solid hsl(280, 87%, 65%);
+			border-left: 3px solid hsl(280, 87%, 65%);
 		}
 	}
 	span {
