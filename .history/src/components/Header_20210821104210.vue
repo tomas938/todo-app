@@ -136,7 +136,7 @@ img {
 
 .img2 {
 	transform: translateX(100%);
-	position: fixed;
+	position: absolute;
 	opacity: 0;
 	right: 0;
 	bottom: 0;

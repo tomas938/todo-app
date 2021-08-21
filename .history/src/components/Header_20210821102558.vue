@@ -108,7 +108,7 @@ img {
 .img1 {
 	opacity: 0;
 	transform: translateX(-100%);
-	position: fixed;
+	position: absolute;
 	left: 0;
 	bottom: 0;
 	background-repeat: no-repeat;

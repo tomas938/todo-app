@@ -45,15 +45,6 @@
 			</div>
 		</div>
 	</header>
-	<div class="img1" :class="{ visible1: ligth }">
-		<img src="../assets/ice.png" alt="" />
-	</div>
-	<div class="img2" :class="{ visible2: ligth }">
-		<img src="../assets/Sid.png" alt="" />
-	</div>
-	<div class="img3" :class="{ visible3: ligth }">
-		<img src="../assets/icicle3.svg" alt="" />
-	</div>
 </template>
 
 <script>
@@ -89,97 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "/src/scss/_variables";
-img {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
-.acorn {
-	position: absolute;
-	right: 0;
-	top: 110%;
-	width: 5rem;
-	height: 5rem;
-	img {
-		width: 100%;
-		height: 100%;
-	}
-}
-.img1 {
-	opacity: 0;
-	transform: translateX(-100%);
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	background-repeat: no-repeat;
-	width: 30rem;
-	height: 30rem;
-	@media only screen and (max-width: 1300px) {
-		width: 20rem;
-		height: 20rem;
-	}
-	@media only screen and (max-width: 700px) {
-		width: 10rem;
-		height: 10rem;
-	}
-	img {
-		width: 100%;
-		height: 100%;
-	}
-	transition: 0.4s ease-in-out;
-}
-.visible1 {
-	opacity: 1;
-	transition: 0.4s ease-in-out;
-	transform: translateX(0%);
-}
 
-.img2 {
-	transform: translateX(100%);
-	position: fixed;
-	opacity: 0;
-	right: 0;
-	bottom: 0;
-	transition: 0.4s ease-in-out;
-	img {
-		width: 100%;
-		height: 100%;
-	}
-	width: 30rem;
-	height: 30rem;
-	@media only screen and (max-width: 1300px) {
-		width: 20rem;
-		height: 20rem;
-	}
-	@media only screen and (max-width: 700px) {
-		width: 10rem;
-		height: 10rem;
-	}
-}
-.visible2 {
-	opacity: 1;
-	transition: 0.4s ease-in-out;
-	transform: translateX(0%);
-}
-.img3 {
-	transform: translateY(-100%);
-	transition: 0.4s ease-in-out;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 10%;
-	width: 40rem;
-	height: 40rem;
-	@media only screen and (max-width: 700px) {
-		width: 20rem;
-		height: 20rem;
-	}
-}
-.visible3 {
-	opacity: 1;
-	transition: 0.4s ease-in-out;
-	transform: translateY(0%);
-}
 header {
 	height: 30rem;
 	display: flex;

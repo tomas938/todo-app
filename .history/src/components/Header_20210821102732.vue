@@ -108,7 +108,7 @@ img {
 .img1 {
 	opacity: 0;
 	transform: translateX(-100%);
-	position: fixed;
+	position: absolute;
 	left: 0;
 	bottom: 0;
 	background-repeat: no-repeat;
@@ -136,7 +136,7 @@ img {
 
 .img2 {
 	transform: translateX(100%);
-	position: fixed;
+	position: absolute;
 	opacity: 0;
 	right: 0;
 	bottom: 0;
