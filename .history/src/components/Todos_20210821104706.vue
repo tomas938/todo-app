@@ -3,7 +3,7 @@
 	<main>
 		<div class="wrapper">
 			<VueDraggableNext class="todos" tag="ul">
-				<transition-group name="list" appear>
+				<transition-group name="list" appear class="todos" tag="ul">
 					<li
 						v-for="(todo, index) in filteredTodos"
 						:key="todo.name"
