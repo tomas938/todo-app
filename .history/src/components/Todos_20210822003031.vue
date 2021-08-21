@@ -194,9 +194,7 @@ h3 {
 		font-size: 1.4rem;
 	}
 }
-
 // TOGGLE TRANSITIONS //
-
 .todos,
 .filters,
 .todo-item {

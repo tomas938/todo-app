@@ -3,15 +3,13 @@
 	<main>
 		<div class="wrapper">
 			<VueDraggableNext class="todos" tag="ul">
-				<transition-group name="list" appear>
-					<List-item
-						v-for="(todo, index) in filteredTodos"
-						:todo="todo"
-						:key="todo"
-						@change-status="todo.completed = !todo.completed"
-						@remove-todo="removeTodo(index)"
-					></List-item>
-				</transition-group>
+				<List-item
+					v-for="(todo, index) in filteredTodos"
+					:todo="todo"
+					:key="todo"
+					@change-status="todo.completed = !todo.completed"
+					@remove-todo="removeTodo(index)"
+				></List-item>
 			</VueDraggableNext>
 			<div class="filters">
 				<div class="items-left">
@@ -194,41 +192,10 @@ h3 {
 		font-size: 1.4rem;
 	}
 }
-
 // TOGGLE TRANSITIONS //
-
 .todos,
 .filters,
 .todo-item {
 	transition: all 0.4s ease-in-out;
-}
-
-// TRANSITION GROUP //
-
-.list-enter-active {
-	transition: all 0.7s ease;
-}
-.list-enter-from {
-	opacity: 0;
-	transform: scale(0.6);
-}
-.list-enter-to {
-	opacity: 1;
-	transform: scale(1);
-}
-.list-leave-active {
-	transition: all 0.7s ease;
-	position: absolute;
-}
-.list-leave-from {
-	opacity: 1;
-	transform: scale(1);
-}
-.list-leave-to {
-	opacity: 0;
-	transform: scale(0.6);
-}
-.list-move {
-	transition: all 0.4s ease;
 }
 </style>

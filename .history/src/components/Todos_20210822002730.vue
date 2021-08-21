@@ -194,17 +194,13 @@ h3 {
 		font-size: 1.4rem;
 	}
 }
-
 // TOGGLE TRANSITIONS //
-
 .todos,
 .filters,
 .todo-item {
 	transition: all 0.4s ease-in-out;
 }
-
-// TRANSITION GROUP //
-
+// TRANSITIONS //
 .list-enter-active {
 	transition: all 0.7s ease;
 }

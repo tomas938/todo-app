@@ -133,6 +133,54 @@ main {
 	border-radius: 0.5rem;
 	background-color: var(--items-bg-color);
 }
+
+	span {
+		overflow: hidden;
+		max-width: 95%;
+		position: relative;
+		transition: all 0.4s ease-in-out;
+		&::before {
+			opacity: 0;
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			width: 10%;
+			height: 0.2rem;
+			background-color: $dark-grayish-blue--dark;
+			transition: all 0.4s ease-in-out;
+		}
+		@media only screen and (max-width: 500px) {
+			font-size: 1.4rem;
+			width: 85%;
+		}
+	}
+	.completed {
+		color: $dark-grayish-blue--dark;
+		position: relative;
+		&::before {
+			transition: all 0.4s ease-in-out;
+			width: 100%;
+			opacity: 1;
+		}
+	}
+	.complete {
+		background-image: url("../assets/icon-check.svg"), $primary-bg;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.close {
+		cursor: pointer;
+		opacity: 0;
+	}
+	&:hover {
+		.close {
+			transition: opacity 0.5s ease-in-out;
+			opacity: 1;
+		}
+	}
+}
 .filters-mobile {
 	display: none;
 	position: relative;
@@ -194,17 +242,13 @@ h3 {
 		font-size: 1.4rem;
 	}
 }
-
 // TOGGLE TRANSITIONS //
-
 .todos,
 .filters,
 .todo-item {
 	transition: all 0.4s ease-in-out;
 }
-
-// TRANSITION GROUP //
-
+// TRANSITIONS //
 .list-enter-active {
 	transition: all 0.7s ease;
 }
