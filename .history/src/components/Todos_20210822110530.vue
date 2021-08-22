@@ -29,7 +29,7 @@
 		@clear-todos="clearTodos()"
 		:todosLength="filteredTodos.length"
 	></Mobile-filters>
-	<DragDropTitle>Drag and drop to reorder items</DragDropTitle>
+	<h3>Drag and drop to reorder items</h3>
 </template>
 
 <script>
@@ -37,7 +37,6 @@ import Filter from "../components/Filters.vue";
 import Header from "../components/Header";
 import ListItem from "../components/ListItem.vue";
 import MobileFilters from "../components/MobileFilters.vue";
-import DragDropTitle from "../components/DragDropTitle";
 import { VueDraggableNext } from "vue-draggable-next";
 export default {
 	components: {
@@ -46,7 +45,6 @@ export default {
 		VueDraggableNext,
 		MobileFilters,
 		Filter,
-		DragDropTitle,
 	},
 	data() {
 		return {
@@ -116,7 +114,7 @@ main {
 	background-color: var(--items-bg-color);
 }
 
-// THEME TRANSITIONS //
+// TOGGLE TRANSITIONS //
 
 .todos,
 .todo-item {

@@ -30,6 +30,7 @@
 		:todosLength="filteredTodos.length"
 	></Mobile-filters>
 	<DragDropTitle>Drag and drop to reorder items</DragDropTitle>
+	<h3></h3>
 </template>
 
 <script>
@@ -116,7 +117,7 @@ main {
 	background-color: var(--items-bg-color);
 }
 
-// THEME TRANSITIONS //
+// TOGGLE TRANSITIONS //
 
 .todos,
 .todo-item {

@@ -116,7 +116,7 @@ main {
 	background-color: var(--items-bg-color);
 }
 
-// THEME TRANSITIONS //
+// TOGGLE TRANSITIONS //
 
 .todos,
 .todo-item {

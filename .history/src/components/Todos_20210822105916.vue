@@ -13,13 +13,15 @@
 					></List-item>
 				</transition-group>
 			</VueDraggableNext>
-			<Filter
-				@completed="filter = 'completed'"
-				@all="filter = 'all'"
-				@active="filter = 'active'"
-				@clear-todos="clearTodos()"
-				:todosLength="filteredTodos.length"
-			></Filter>
+			<div class="filters">
+				<Filter
+					@completed="filter = 'completed'"
+					@all="filter = 'all'"
+					@active="filter = 'active'"
+					@clear-todos="clearTodos()"
+					:todosLength="filteredTodos.length"
+				></Filter>
+			</div>
 		</div>
 	</main>
 	<Mobile-filters
@@ -29,7 +31,7 @@
 		@clear-todos="clearTodos()"
 		:todosLength="filteredTodos.length"
 	></Mobile-filters>
-	<DragDropTitle>Drag and drop to reorder items</DragDropTitle>
+	<h3>Drag and drop to reorder items</h3>
 </template>
 
 <script>
@@ -37,7 +39,6 @@ import Filter from "../components/Filters.vue";
 import Header from "../components/Header";
 import ListItem from "../components/ListItem.vue";
 import MobileFilters from "../components/MobileFilters.vue";
-import DragDropTitle from "../components/DragDropTitle";
 import { VueDraggableNext } from "vue-draggable-next";
 export default {
 	components: {
@@ -46,7 +47,6 @@ export default {
 		VueDraggableNext,
 		MobileFilters,
 		Filter,
-		DragDropTitle,
 	},
 	data() {
 		return {
@@ -115,8 +115,27 @@ main {
 	border-radius: 0.5rem;
 	background-color: var(--items-bg-color);
 }
+.filters {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--items-bg-color);
+	padding: 2rem;
+	border-radius: 0.5rem;
+}
 
-// THEME TRANSITIONS //
+h3 {
+	margin: 6rem 0;
+	text-align: center;
+	color: $dark-grayish-blue--dark;
+	font-size: 1.8rem;
+	position: relative;
+	z-index: 10;
+	@media only screen and (max-width: 600px) {
+		font-size: 1.4rem;
+	}
+}
+
+// TOGGLE TRANSITIONS //
 
 .todos,
 .todo-item {

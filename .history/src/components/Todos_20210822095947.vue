@@ -13,40 +13,60 @@
 					></List-item>
 				</transition-group>
 			</VueDraggableNext>
-			<Filter
-				@completed="filter = 'completed'"
-				@all="filter = 'all'"
-				@active="filter = 'active'"
-				@clear-todos="clearTodos()"
-				:todosLength="filteredTodos.length"
-			></Filter>
+			<Filter.
+			<!-- <div class="filters">
+				<div class="items-left">
+					<span>{{ filteredTodos.length }} items left</span>
+				</div>
+				<div class="filter">
+					<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+						>All</span
+					>
+					<span
+						:class="{ active: filter === 'active' }"
+						@click="filter = 'active'"
+						>Active</span
+					>
+					<span
+						:class="{ active: filter === 'completed' }"
+						@click="filter = 'completed'"
+						>Completed</span
+					>
+				</div>
+				<div class="clear">
+					<span @click="clearTodos">Clear Completed</span>
+				</div>
+			</div> -->
 		</div>
 	</main>
-	<Mobile-filters
-		@completed="filter = 'completed'"
-		@all="filter = 'all'"
-		@active="filter = 'active'"
-		@clear-todos="clearTodos()"
-		:todosLength="filteredTodos.length"
-	></Mobile-filters>
-	<DragDropTitle>Drag and drop to reorder items</DragDropTitle>
+	<div class="filters-mobile">
+		<div class="filter">
+			<span :class="{ active: filter === 'all' }" @click="filter = 'all'"
+				>All</span
+			>
+			<span :class="{ active: filter === 'active' }" @click="filter = 'active'"
+				>Active</span
+			>
+			<span
+				:class="{ active: filter === 'completed' }"
+				@click="filter = 'completed'"
+				>Completed</span
+			>
+		</div>
+	</div>
+	<h3>Drag and drop to reorder items</h3>
 </template>
 
 <script>
 import Filter from "../components/Filters.vue";
 import Header from "../components/Header";
 import ListItem from "../components/ListItem.vue";
-import MobileFilters from "../components/MobileFilters.vue";
-import DragDropTitle from "../components/DragDropTitle";
 import { VueDraggableNext } from "vue-draggable-next";
 export default {
 	components: {
 		Header,
 		ListItem,
 		VueDraggableNext,
-		MobileFilters,
-		Filter,
-		DragDropTitle,
 	},
 	data() {
 		return {
@@ -115,10 +135,72 @@ main {
 	border-radius: 0.5rem;
 	background-color: var(--items-bg-color);
 }
+.filters-mobile {
+	display: none;
+	position: relative;
+	z-index: 10;
+	background-color: var(--items-bg-color);
+	padding: 2rem;
+	box-shadow: 0px 0px 11px 0px #1a1919;
+	border-radius: 0.5rem;
+	margin: 0 3rem;
+	transition: all 0.4s ease-in-out;
+	@media only screen and (max-width: 600px) {
+		display: block;
+	}
+}
+.filters {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--items-bg-color);
+	padding: 2rem;
+	border-radius: 0.5rem;
+	.filter {
+		font-weight: $bold;
+		display: flex;
+		gap: 2rem;
+		@media only screen and (max-width: 600px) {
+			display: none;
+		}
+		.active {
+			color: $primary;
+			transition: color 0.3s ease-in-out;
+		}
+	}
+	.items-left {
+		span {
+			cursor: auto;
+		}
+	}
+	span {
+		color: $dark-grayish-blue--dark;
+		cursor: pointer;
+		font-size: 1.7rem;
+		@media only screen and (max-width: 350px) {
+			font-size: 1.4rem;
+		}
+		&:hover {
+			transition: color 0.4s ease-in-out;
+			color: var(--todo-text);
+		}
+	}
+}
+h3 {
+	margin: 6rem 0;
+	text-align: center;
+	color: $dark-grayish-blue--dark;
+	font-size: 1.8rem;
+	position: relative;
+	z-index: 10;
+	@media only screen and (max-width: 600px) {
+		font-size: 1.4rem;
+	}
+}
 
-// THEME TRANSITIONS //
+// TOGGLE TRANSITIONS //
 
 .todos,
+.filters,
 .todo-item {
 	transition: all 0.4s ease-in-out;
 }
